@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join a team</title>
+
+  <style>
+    html {
+      --primary: #0abf53;
+      --font: 'Andale Mono', 'Menlo', 'Courier New', Courier, monospace;
+      --dark: #222;
+      --gray: #D8D8D8;
+      --white: #FFF;
+      --darkGray: #A2A2A2;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #FFF 75%, #FFF8F8 100%);
+      font-family: var(--font);
+      /*background-image: url(https://www.kirupa.com/images/circles_bottom.svg);*/
+      background-repeat: no-repeat;
+      background-position: calc(100% + 150px) calc(100% + 50px);
+      background-size: 450px;
+      padding: 20px;
+    }
+
+    h1 {
+      color: var(--primary);
+      border-bottom: 5px solid var(--primary);
+      padding: 20px;
+      margin-top: 0px;
+      font-size: 3em;
+      font-weight: 100;
+    }
+
+    label {
+      margin: 20px;
+      color: var(--darkGray);
+    }
+
+    input {
+      display: block;
+      font-family: var(--font);
+      font-size: 2em;
+      padding: 10px;
+      font-weight: 100;
+      border: 3px solid var(--gray);
+      margin: 20px;
+      background-color: var(--white);
+      width: calc(100% - 65px);
+    }
+
+    textarea {
+      display: block;
+      font-family: var(--font);
+      /*font-size: 2em;*/
+      padding: 10px;
+      font-weight: 100;
+      border: 3px solid var(--gray);
+      margin: 20px;
+      background-color: var(--white);
+      width: calc(100% - 65px);
+    }
+
+    #encrypted {
+      /*white-space: nowrap;*/
+      /*width: 100%*/
+/*      border-color: var(--dark);
+      background-color: var(--dark);
+      color: var(--white);*/
+    }
+
+    .mainContainer {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    hr {
+      border: 1px solid var(--primary);
+      margin: 50px 0px;
+    }
+
+    .orange img {
+      width: 50px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
+    #formula {
+      width: 100px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="mainContainer">
+  <h1>Team Assigner</h1>
+  <p>Click the button below to get a team assigned for the Play to Pay processing board game competition! Match the formula point assigned with your pawn on the board<br><br>
+    Don't forget to take a screenshot of your assigned team, as you won't be able to find it again. <br>
+  </p>
+  <button onclick = "teamAssignment()" style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">Assign me to a team! </button>
+
+<hr>
+    <label for="original">Assigned team:</label>
+  <textarea id="encrypted" type="text" value="" readonly></textarea>
+
+  <a class="orange" href="https://www.adyen.com">
+    <img id="formula" src="winning.png" style="display: none">
+  </a>
+</div>
+
+  <script>
+let teamInput = document.querySelector("#encrypted");
+var imgShow = document.getElementById("formula");
+
+let teamAssigned = teamInput.value;
+var teamsList = ["Build to benefit all", "We make good decisions and consider the long term benefit", "Launch fast and iterate", "We create our own path", "We don't hide behind email", "We seek out different perspectives to sharpen our ideas", "We talk straight without being rude", "Winning is more important than ego"]  
+var teamsListImg = ["benefit-all.png", "good-decisions.png", "launch.png", "path.png", "phone.png", "sharpen.png", "talk-straight.png", "winning.png"]  
+
+function teamAssignment() {
+	var randomTeam = teamsList[ Math.floor(Math.random()*8)];
+	teamAssigned = randomTeam
+	teamInput.value = teamAssigned;
+	console.log(randomTeam)
+
+  if (randomTeam === teamsList[0]){
+    imgShow.src = "benefit-all.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[1]){
+    imgShow.src = "good-decisions.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[2]){
+    imgShow.src = "launch.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[3]){
+    imgShow.src = "path.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[4]){
+    imgShow.src = "phone.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[5]){
+    imgShow.src = "sharpen.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[6]){
+    imgShow.src = "talk-straight.png";
+    imgShow.style.display = "block";
+  } else if (randomTeam === teamsList[7]){
+    imgShow.src = "winning.png";
+    imgShow.style.display = "block";
+  } else {
+    imgShow.style.display = "none";
+  }
+};
+  </script>
+</body>
+
+</html>
